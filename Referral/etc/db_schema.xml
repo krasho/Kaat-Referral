@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="referral" resource="default" engine="innodb" comment="Referral Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID" />
+        <column xsi:type="varchar" name="first_name" nullable="true" length="255" comment="First Name" />
+        <column xsi:type="varchar" name="last_name" nullable="true" length="255" comment="Last Name" />
+        <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Email" />
+        <column xsi:type="varchar" name="phone" nullable="true" length="20" comment="Phone" />
+        <column xsi:type="varchar" name="status" nullable="false" length="20" comment="Status (pendiente | registrado)" />
+        <column xsi:type="int" name="customer_id" nullable="true" comment="Customer ID" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNIQUE_EMAIL">
+            <column name="email"/>
+        </constraint>
+    </table>
+</schema>
