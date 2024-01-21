@@ -1,26 +1,59 @@
-<table>
-    <thead>
-    <tr>
-        <th>Entity ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Status</th>
-        <th>Customer ID</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($block->getReferralCollection() as $referral) : ?>
+<?php
+$referralCollection = $block->getReferralCollection();
+?>
+
+
+<div class="relative overflow-x-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 py-4">
+        <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+            <a href="#" type="button" class="flex items-center justify-center text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:ring-primary-300 font-medium
+                                         rounded-lg text-lg px-4 py-2 focus:outline-none dark:focus:ring-primary-800 border-0 !no-underline">
+                Add referral
+            </a>
+        </div>
+    </div>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
-            <td><?= $referral->getEntityId() ?></td>
-            <td><?= $referral->getFirstName() ?></td>
-            <td><?= $referral->getLastName() ?></td>
-            <td><?= $referral->getEmail() ?></td>
-            <td><?= $referral->getPhone() ?></td>
-            <td><?= $referral->getStatus() ?></td>
-            <td><?= $referral->getCustomerId() ?></td>
+            <th scope="col" class="px-6 py-3 text-xl">
+                First Name
+            </th>
+            <th scope="col" class="px-6 py-3 text-xl">
+                Last Name
+            </th>
+            <th scope="col" class="px-6 py-3 text-xl">
+                Email
+            </th>
+            <th scope="col" class="px-6 py-3 text-xl">
+                Status
+            </th>
         </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <?php if (!empty($referralCollection->getData())) : ?>
+            <?php foreach ($referralCollection as $referral) : ?>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-lg">
+                        <?= $referral->getFirstName() ?>
+                    </th>
+                    <td class="px-6 py-4 text-lg">
+                        <?= $referral->getLastName() ?>
+                    </td>
+                    <td class="px-6 py-4 text-lg">
+                        <?= $referral->getEmail() ?>
+                    </td>
+                    <td class="px-6 py-4 text-lg">
+                        <?= $referral->getStatus() ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-lg text-center" colspan="4">
+                    No records Found
+                </th>
+            </tr>
+        <?php endif ?>
+        </tbody>
+    </table>
+</div>
