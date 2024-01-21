@@ -4,7 +4,7 @@
         <referenceBlock name="customer_account_navigation">
             <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-custommodule">
                 <arguments>
-                    <argument name="path" xsi:type="string">Kaat/Referral/index</argument>
+                    <argument name="path" xsi:type="string">kaat/referral</argument>
                     <argument name="label" xsi:type="string" translate="true">Referrals</argument>
                 </arguments>
             </block>

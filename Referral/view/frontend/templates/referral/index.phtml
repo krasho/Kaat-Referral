@@ -1,1 +1,26 @@
-Hello referral/index.phtml
+<table>
+    <thead>
+    <tr>
+        <th>Entity ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Customer ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($block->getReferralCollection() as $referral) : ?>
+        <tr>
+            <td><?= $referral->getEntityId() ?></td>
+            <td><?= $referral->getFirstName() ?></td>
+            <td><?= $referral->getLastName() ?></td>
+            <td><?= $referral->getEmail() ?></td>
+            <td><?= $referral->getPhone() ?></td>
+            <td><?= $referral->getStatus() ?></td>
+            <td><?= $referral->getCustomerId() ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

@@ -10,7 +10,7 @@ namespace Kaat\Referral\Controller\Referral;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\PageFactory;
-use Kaat\Referral\Model\ResourceModel\Referral\Collection;
+
 
 
 class Index implements HttpGetActionInterface
@@ -40,7 +40,7 @@ class Index implements HttpGetActionInterface
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->set(__('My Referrals'));
-
+        $layout = $resultPage->getLayout();
         return $resultPage;
     }
 }
